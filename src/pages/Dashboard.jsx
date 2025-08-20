@@ -24,7 +24,6 @@ const Dashboard = () => {
             <Users />
           </div>
           
-          {/* Full width content at bottom */}
           <div className="md:col-span-3">
             <Gallery />
           </div>
