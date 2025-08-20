@@ -20,15 +20,16 @@ import {
   TrendingUp,
   MessageSquare,
   Globe,
-  Contact
+  Contact,
+  Menu
 } from 'lucide-react';
 
 const icons = [
-  { id: 'alert', icon: <Bell size={25} strokeWidth={3} /> },
-  { id: 'budget', icon: <Calculator size={25} strokeWidth={3} /> },
-  { id: 'calendar', icon: <Calendar size={25} strokeWidth={3} /> },
-  { id: 'news', icon: <Mail size={25} strokeWidth={3} /> },
-  { id: 'profile', icon: <User size={25} strokeWidth={3} /> }
+  { id: 'alert', icon: <Bell size={20} strokeWidth={2.5} className="sm:size-6" /> },
+  { id: 'budget', icon: <Calculator size={20} strokeWidth={2.5} className="sm:size-6" /> },
+  { id: 'calendar', icon: <Calendar size={20} strokeWidth={2.5} className="sm:size-6" /> },
+  { id: 'news', icon: <Mail size={20} strokeWidth={2.5} className="sm:size-6" /> },
+  { id: 'profile', icon: <User size={20} strokeWidth={2.5} className="sm:size-6" /> }
 ];
 
 const AlertComponent = () => {
@@ -80,37 +81,37 @@ const AlertComponent = () => {
   ];
 
   return (
-    <div className="p-6 bg-white">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Alerts & Notifications</h2>
+    <div className="p-4 sm:p-6 bg-white">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Alerts & Notifications</h2>
       
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {alerts.map((alert) => (
           <div
             key={alert.id}
-            className={`${alert.bgColor} ${alert.borderColor} border rounded-lg p-4 hover:shadow-md transition-shadow`}
+            className={`${alert.bgColor} ${alert.borderColor} border rounded-lg p-3 sm:p-4 hover:shadow-md transition-shadow`}
           >
             <div className="flex items-start space-x-3">
-              <alert.icon size={20} className={`${alert.color} mt-0.5 flex-shrink-0`} />
+              <alert.icon size={18} className={`${alert.color} mt-0.5 flex-shrink-0 sm:size-5`} />
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-semibold text-gray-900 mb-1">
                   {alert.title}
                 </h4>
-                <p className="text-sm text-gray-700 mb-2">
+                <p className="text-xs sm:text-sm text-gray-700 mb-2">
                   {alert.message}
                 </p>
                 <p className="text-xs text-gray-500">
                   {alert.time}
                 </p>
               </div>
-              <button className="text-gray-400 hover:text-gray-600">
-                <X size={16} />
+              <button className="text-gray-400 hover:text-gray-600 p-1">
+                <X size={14} className="sm:size-4" />
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-6">
+      <div className="mt-4 sm:mt-6">
         <button className="w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium">
           Mark All as Read
         </button>
@@ -118,7 +119,6 @@ const AlertComponent = () => {
     </div>
   );
 };
-
 
 const NewsComponent = () => {
   const newsItems = [
@@ -165,25 +165,25 @@ const NewsComponent = () => {
   ];
 
   return (
-    <div className="p-6 bg-white">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">News & Updates</h2>
-        <Globe size={24} className="text-gray-700" />
+    <div className="p-4 sm:p-6 bg-white">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">News & Updates</h2>
+        <Globe size={20} className="text-gray-700 sm:size-6" />
       </div>
       
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {newsItems.map((item) => (
           <article
             key={item.id}
-            className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer border border-gray-200"
+            className="bg-gray-50 rounded-lg p-3 sm:p-4 hover:shadow-md transition-shadow cursor-pointer border border-gray-200"
           >
-            <div className="flex items-start space-x-4">
-              <div className="text-2xl flex-shrink-0">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <div className="text-xl sm:text-2xl flex-shrink-0">
                 {item.image}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 mb-2">
+                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 w-fit">
                     {item.category}
                   </span>
                   <span className="text-xs text-gray-500">
@@ -193,7 +193,7 @@ const NewsComponent = () => {
                 <h3 className="text-sm font-semibold text-gray-900 mb-2 line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                <p className="text-xs sm:text-sm text-gray-600 mb-3 line-clamp-2">
                   {item.excerpt}
                 </p>
                 <div className="flex items-center justify-between text-xs text-gray-500">
@@ -201,15 +201,15 @@ const NewsComponent = () => {
                   <span>{item.readTime}</span>
                 </div>
               </div>
-              <button className="text-gray-400 hover:text-gray-600">
-                <MessageSquare size={16} />
+              <button className="text-gray-400 hover:text-gray-600 p-1">
+                <MessageSquare size={14} className="sm:size-4" />
               </button>
             </div>
           </article>
         ))}
       </div>
 
-      <div className="mt-6">
+      <div className="mt-4 sm:mt-6">
         <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
           View All News
         </button>
@@ -218,33 +218,28 @@ const NewsComponent = () => {
   );
 };
 
-
 const BudgetSetupCard = () => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-lg max-w-sm mx-auto">
-      <div className="bg-slate-800 px-6 py-8 flex justify-center rounded-t-lg">
-        <div className="w-12 h-12 border-2 border-white rounded-xl flex flex-col items-center justify-center">
-          <div className="w-6 h-1.5 bg-white rounded-full mb-1"></div>
+    <div className="p-4 bg-white rounded-lg shadow-lg w-full max-w-sm mx-auto">
+      <div className="bg-slate-800 px-4 sm:px-6 py-6 sm:py-8 flex justify-center rounded-t-lg">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-xl flex flex-col items-center justify-center">
+          <div className="w-5 h-1 sm:w-6 sm:h-1.5 bg-white rounded-full mb-1"></div>
           <div className="grid grid-cols-3 gap-1">
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
-            <div className="w-1 h-1 bg-white rounded-full"></div>
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="w-1 h-1 bg-white rounded-full"></div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-4 space-y-4">
+      <div className="p-3 sm:p-4 space-y-3 sm:space-y-4">
         <div className="flex items-start space-x-3">
           <div className="flex flex-col items-center mt-1">
             <div className="w-1.5 h-1.5 border-2 border-gray-400 rounded-full"></div>
-            <div className="w-0.5 h-6 bg-gray-300 mt-1"></div>
+            <div className="w-0.5 h-4 sm:h-6 bg-gray-300 mt-1"></div>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-1">
+            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1">
               Set up annual budgets by account category
             </h3>
             <p className="text-xs text-gray-600">
@@ -253,16 +248,15 @@ const BudgetSetupCard = () => {
           </div>
         </div>
 
-        {/* Second feature */}
         <div className="flex items-start space-x-3">
           <div className="flex flex-col items-center mt-1">
-            <div className="w-5 h-5 border border-gray-400 rounded flex items-center justify-center">
-              <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
+            <div className="w-4 h-4 sm:w-5 sm:h-5 border border-gray-400 rounded flex items-center justify-center">
+              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-400 rounded-full"></div>
             </div>
-            <div className="w-0.5 h-6 bg-gray-300 mt-1"></div>
+            <div className="w-0.5 h-4 sm:h-6 bg-gray-300 mt-1"></div>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-1">
+            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1">
               Track actuals vs budget in real time
             </h3>
             <p className="text-xs text-gray-600">
@@ -271,10 +265,9 @@ const BudgetSetupCard = () => {
           </div>
         </div>
 
-        {/* Third feature */}
         <div className="flex items-start space-x-3">
-          <div className="flex items-center justify-center w-5 h-5 mt-1">
-            <div className="w-5 h-5">
+          <div className="flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 mt-1">
+            <div className="w-4 h-4 sm:w-5 sm:h-5">
               <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-gray-400">
                 <rect x="3" y="14" width="4" height="6" fill="currentColor"/>
                 <rect x="10" y="10" width="4" height="10" fill="currentColor"/>
@@ -283,7 +276,7 @@ const BudgetSetupCard = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-1">
+            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1">
               Adjust figures and forecast with ease
             </h3>
             <p className="text-xs text-gray-600">
@@ -292,8 +285,7 @@ const BudgetSetupCard = () => {
           </div>
         </div>
 
-        {/* Create Budget Button */}
-        <button className="w-full bg-gray-900 text-white py-2 px-4 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+        <button className="w-full bg-gray-900 text-white py-2 px-4 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-800 transition-colors">
           Create Budget
         </button>
       </div>
@@ -301,9 +293,9 @@ const BudgetSetupCard = () => {
   );
 };
 
-// Calendar Component 
 const CalendarComponent = () => {
   const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  const shortDays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   
   const calendarDays = [
     // October carryover
@@ -354,23 +346,24 @@ const CalendarComponent = () => {
   ];
 
   return (
-    <div className="h-full flex flex-col bg-black rounded-lg border border-gray-700 p-4">
+    <div className="h-full flex flex-col bg-black rounded-lg border border-gray-700 p-2 sm:p-4">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3 sm:mb-4">
         <button className="p-1 hover:bg-gray-800 rounded text-gray-300">
-          <ChevronLeft size={20} />
+          <ChevronLeft size={16} className="sm:size-5" />
         </button>
-        <h2 className="text-lg font-medium text-gray-300">November 2023</h2>
+        <h2 className="text-sm sm:text-lg font-medium text-gray-300">November 2023</h2>
         <button className="p-1 hover:bg-gray-800 rounded text-gray-300">
-          <ChevronRight size={20} />
+          <ChevronRight size={16} className="sm:size-5" />
         </button>
       </div>
 
       {/* Days of week header */}
       <div className="grid grid-cols-7 mb-2 border-b border-gray-700">
-        {daysOfWeek.map((day) => (
-          <div key={day} className="text-xs text-gray-500 text-center py-2 font-medium">
-            {day}
+        {daysOfWeek.map((day, index) => (
+          <div key={day} className="text-xs text-gray-500 text-center py-1 sm:py-2 font-medium">
+            <span className="hidden sm:inline">{day}</span>
+            <span className="sm:hidden">{shortDays[index]}</span>
           </div>
         ))}
       </div>
@@ -381,7 +374,7 @@ const CalendarComponent = () => {
           <div 
             key={index} 
             className="relative border-r border-b border-gray-700"
-            style={{ minHeight: '48px' }}
+            style={{ minHeight: '32px' }}
           >
             <button
               className={`
@@ -396,10 +389,10 @@ const CalendarComponent = () => {
             </button>
             {date.isFirstDay && (
               <div className="absolute top-1 left-1 flex items-center">
-                <span className="text-[10px] text-gray-400 font-medium mr-1">
+                <span className="text-[8px] sm:text-[10px] text-gray-400 font-medium mr-1">
                   {date.monthLabel}
                 </span>
-                <span className="text-[10px] text-gray-400">
+                <span className="text-[8px] sm:text-[10px] text-gray-400">
                   {date.day}
                 </span>
               </div>
@@ -410,7 +403,7 @@ const CalendarComponent = () => {
     </div>
   );
 };
-// User Profile Menu Component 
+
 const UserProfileMenu = () => {
   const menuItems = [
     { icon: Users, label: 'Teams', color: 'text-gray-700' },
@@ -421,29 +414,29 @@ const UserProfileMenu = () => {
   ];
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden" style={{ width: '320px' }}>
+    <div className="w-full max-w-sm bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
       {/* User info header */}
-      <div className="p-6 border-b border-gray-100 bg-gray-50">
-        <div className="flex items-center space-x-4">
-          <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2F4F4F' }}>
-            <span className="text-white font-semibold text-xl">D</span>
+      <div className="p-4 sm:p-6 border-b border-gray-100 bg-gray-50">
+        <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="w-10 h-10 sm:w-14 sm:h-14 bg-green-600 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2F4F4F' }}>
+            <span className="text-white font-semibold text-sm sm:text-xl">D</span>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900 text-lg">Dylan Frank</h3>
-            <p className="text-sm text-gray-500">dylan96@mail.com</p>
+            <h3 className="font-semibold text-gray-900 text-sm sm:text-lg">Dylan Frank</h3>
+            <p className="text-xs sm:text-sm text-gray-500">dylan96@mail.com</p>
           </div>
         </div>
       </div>
 
       {/* Menu items */}
-      <div className="py-2">
+      <div className="py-">
         {menuItems.map((item, index) => (
           <button
             key={index}
-            className="w-full flex items-center space-x-4 px-6 py-4 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+            className="w-full flex items-center space-x-3 sm:space-x-4 px-4 sm:px-6 py-3 sm:py-4 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
           >
-            <item.icon size={20} className={item.color} />
-            <span className={`text-sm font-medium ${item.color}`}>
+            <item.icon size={16} className={`${item.color} sm:size-5`} />
+            <span className={`text-xs sm:text-sm font-medium ${item.color}`}>
               {item.label}
             </span>
           </button>
@@ -462,15 +455,15 @@ const ModalContent = ({ type, onClose }) => {
     profile: <UserProfileMenu />
   };
 
-  // Budget modal 
+  // Budget modal - centered on all devices
   if (type === 'budget') {
     return (
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+        className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
         onClick={onClose}
       >
         <div 
-          className="bg-transparent"
+          className="bg-transparent w-full max-w-sm"
           onClick={e => e.stopPropagation()}
         >
           {content[type]}
@@ -479,15 +472,15 @@ const ModalContent = ({ type, onClose }) => {
     );
   }
 
-  // Calendar modal 
-  if (type === 'calendar') {
+  // Calendar and Profile modals - responsive positioning
+  if (type === 'calendar' || type === 'profile') {
     return (
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50"
+        className="fixed inset-0 bg-black bg-opacity-50 flex justify-center md:justify-end z-50 p-4"
         onClick={onClose}
       >
         <div 
-          className="bg-transparent w-1/4 h-full p-4"
+          className="bg-transparent w-full max-w-sm md:max-w-none md:w-1/3 lg:w-1/4 h-full flex justify-center items-start pt-4 md:pt-6"
           onClick={e => e.stopPropagation()}
         >
           {content[type]}
@@ -496,40 +489,23 @@ const ModalContent = ({ type, onClose }) => {
     );
   }
 
-  // Profile modal
-  if (type === 'profile') {
-    return (
-      <div 
-        className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50"
-        onClick={onClose}
-      >
-        <div 
-          className="bg-transparent w-1/4 h-full p-6 flex justify-center items-start"
-          onClick={e => e.stopPropagation()}
-        >
-          {content[type]}
-        </div>
-      </div>
-    );
-  }
-
-  // Default modal for alert 
+  // Default modal for alert and news - responsive sidebar
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center md:justify-end z-50"
       onClick={onClose}
     >
       <div 
-        className="bg-white w-1/3 h-full overflow-y-auto"
+        className="bg-white w-full md:w-2/3 lg:w-1/2 xl:w-1/3 h-full overflow-y-auto"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 capitalize">{type}</h2>
+        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">{type}</h2>
           <button 
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
           >
-            <X size={20} className="text-gray-700" />
+            <X size={18} className="text-gray-700 sm:size-5" />
           </button>
         </div>
         {content[type]}
@@ -541,28 +517,35 @@ const ModalContent = ({ type, onClose }) => {
 const TopNavbar = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [showProfileHover, setShowProfileHover] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const handleIconClick = (id) => {
     setActiveModal(id);
+    setShowMobileMenu(false);
   };
 
   const closeModal = () => {
     setActiveModal(null);
   };
 
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
   return (
     <>
-      <div className="bg-black text-white py-7 px-20 flex justify-between items-center">
+      <div className="bg-black text-white py-4 sm:py-7 px-4 sm:px-8 lg:px-20 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <Star className="h-6 w-6 text-white" strokeWidth={3} />
-          <span className="font-bold text-2xl">myxellia</span>
+          <Star className="h-5 w-5 sm:h-6 sm:w-6 text-white" strokeWidth={3} />
+          <span className="font-bold text-lg sm:text-2xl">myxellia</span>
         </div>
         
-        <div className="flex space-x-8">
+        {/* Desktop Navigation */}
+        <div className="hidden sm:flex space-x-4 lg:space-x-8">
           {icons.map((item) => (
             <div key={item.id} className="relative">
               <button
-                className="text-xl cursor-pointer hover:opacity-80 transition-opacity"
+                className="text-xl cursor-pointer hover:opacity-80 transition-opacity p-1"
                 onClick={() => handleIconClick(item.id)}
                 onMouseEnter={() => item.id === 'profile' && setShowProfileHover(true)}
                 onMouseLeave={() => item.id === 'profile' && setShowProfileHover(false)}
@@ -587,6 +570,34 @@ const TopNavbar = () => {
             </div>
           ))}
         </div>
+
+        {/* Mobile Menu Button */}
+        <div className="sm:hidden">
+          <button
+            onClick={toggleMobileMenu}
+            className="p-2 hover:opacity-80 transition-opacity"
+          >
+            <Menu size={20} />
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {showMobileMenu && (
+          <div className="absolute top-16 left-0 right-0 bg-black border-t border-gray-800 sm:hidden z-50">
+            <div className="px-4 py-2 space-y-2">
+              {icons.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleIconClick(item.id)}
+                  className="w-full flex items-center space-x-3 p-3 hover:bg-gray-800 rounded-lg transition-colors"
+                >
+                  {item.icon}
+                  <span className="capitalize text-sm">{item.id}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {activeModal &&
